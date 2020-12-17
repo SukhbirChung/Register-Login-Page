@@ -11,6 +11,9 @@ register_or_login = input("Do you want to register or login?\nPress 'R' to regis
 while register_or_login.lower() != 'r' and register_or_login.lower() != 'l':
     register_or_login = input("Sorry, invalid entry. Press 'R' to register or 'L' to login: ")
 
+with open("database.txt","w") as database:
+    pass
+
 # For Registration. All The requirements for all the user inputs can be found in the README.md file
 if register_or_login.lower() == 'r':
     print("----We need some data to register you----")
@@ -24,8 +27,6 @@ if register_or_login.lower() == 'r':
     while '@' not in email:
         email = input("Sorry, an email should have an '@' sign. Please enter a valid email: ").strip()
     username = input("Username: ").strip()
-    with open("database.txt","w") as database:
-        pass
     with open("database.txt") as database:
         while True:
             while not username:
