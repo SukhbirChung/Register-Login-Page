@@ -24,6 +24,8 @@ if register_or_login.lower() == 'r':
     while '@' not in email:
         email = input("Sorry, an email should have an '@' sign. Please enter a valid email: ").strip()
     username = input("Username: ").strip()
+    with open("database.txt","w") as database:
+        pass
     with open("database.txt") as database:
         while True:
             while not username:
