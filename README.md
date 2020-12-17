@@ -20,5 +20,3 @@ It must have at least one lowercase letter.
 It must have at least one uppercase letter.
 
 Confirmed password must be same as the password.
- 
-For this project to work, you will need an empty text file named databse to exist in the same directory where main.py is saved. 
