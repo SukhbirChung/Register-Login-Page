@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Register Login Landing page">
+    <meta name="author" content="Sukhbir Kaur Chung" />
+    <meta name="date" content="Aug 06, 2024" />
+
+    <link rel="icon" href="images/site-icon.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100&family=Barlow+Semi+Condensed:wght@500&family=Big+Shoulders+Display&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/CSSReset.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/index.css" />
+
+    <title>Register Login Landing Page</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="scripts/index.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="welcome-screen">
+            <h1 class="welcome-screen-heading">Register</h1>
+            <div class="logo">
+                <img src="images/site-logo.svg" alt="webiste logo" width="50%">
+            </div>
+        </div>
+        <div class="form-container">
+            <div class="form-buttons">
+                <button class="signup-button">SIGN UP</button>
+                <button class="signin-button">SIGN IN</button>
+            </div>
+
+            <div class="form">
+                <form>
+                    <div class="form-input-container">
+                        <label class="form-label" for="email">EMAIL</label>
+                        <input class="form-input" type="email" id="email" name="email" required
+                            placeholder="name@domain.com" />
+                    </div>
+                    <div class="form-input-container">
+                        <label class="form-label" for="password">PASSWORD</label>
+                        <input class="form-input" type="password" id="password" name="password" required
+                            placeholder="Password" maxlength="12" />
+                        <button type="button" class="showHidePassword"><img src="images/showPassword-icon.png"
+                                alt="Show Password icon" width="20" /></button>
+                        <button type="button" class="showHidePassword"><img src="images/hidePassword-icon.png"
+                                alt="Hide Password icon" width="20" /></button>
+                        <div class="check-for-specifications">
+                            <ul style="list-style: disc; list-style-position: inside;">
+                                <li>Spaces not allowed</li>
+                                <li>Maximum length allowed is 12</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-input-container confirm-password-container">
+                        <label class="form-label" for="confirm-password">CONFIRM PASSWORD</label>
+                        <input class="form-input" type="password" id="confirm-password" name="confirm-password" required
+                            placeholder="Confirm Password" />
+                        <button type="button" class="showHidePassword"><img src="images/showPassword-icon.png"
+                                alt="Show Password icon" width="20" /></button>
+                        <button type="button" class="showHidePassword"><img src="images/hidePassword-icon.png"
+                                alt="Hide Password icon" width="20" /></button>
+                        <div class="check-for-match">
+                            Passwords must match
+                        </div>
+                    </div>
+
+                    <div class="submit-button-container">
+                        <button class="submit-button">Create Account</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="terms-and-privacy">
+                <input type="checkbox" />
+                <label>Creating an account means you're okay with our terms of service and our privacy policy</label>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
