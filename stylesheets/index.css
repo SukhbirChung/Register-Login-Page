@@ -49,7 +49,7 @@ button{
 }
 
 .form{
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 .signup-button{
@@ -99,6 +99,11 @@ button{
     background-color: #211452;
     color: white;
     font-size: 14px;
+}
+
+.response{
+    margin-bottom: 3px;
+    text-align: center;
 }
 
 .terms-and-privacy{

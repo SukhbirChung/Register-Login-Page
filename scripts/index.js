@@ -30,15 +30,17 @@ const specificationMessage = document.querySelector('.check-for-specifications')
 function checkForSpecifications() {
     if (this.value.includes(' ')) {
         this.value = this.value.substring(0, this.value.length - 1);
-        hideSpecificationMessage("1");
+        specificationMessage.style.opacity = "1";
+        specificationMessage.style.zIndex = "1";
     } else {
-        hideSpecificationMessage("0");
+        specificationMessage.style.opacity = "0";
+        specificationMessage.style.zIndex = "-1";
     }
 }
 
-function hideSpecificationMessage(value) {
-    specificationMessage.style.opacity = value;
-    specificationMessage.style.zIndex = value;
+function hideSpecificationMessage() {
+    specificationMessage.style.opacity = "0";
+    specificationMessage.style.zIndex = "-1";
 }
 
 /* Check if the passwords match */
@@ -57,9 +59,9 @@ function checkForMatch() {
     }
 }
 
-function hideMatchMessage(value) {
-    matchMessage.style.opacity = value;
-    matchMessage.style.zIndex = value;
+function hideMatchMessage() {
+    matchMessage.style.opacity = "0";
+    matchMessage.style.zIndex = "-1";
 }
 
 /* Switch between Signin and Signup forms */
@@ -69,6 +71,7 @@ const signUpBtn = document.querySelector('.signup-button');
 const emailContainer = form.querySelector('.email-container');
 const confirmPasswordContainer = form.querySelector('.confirm-password-container');
 const submitBtn = form.querySelector('.submit-button');
+const response = document.querySelector('.response');
 
 signInBtn.addEventListener('click', () => {
     emailContainer.style.display = "none";
@@ -87,13 +90,11 @@ signUpBtn.addEventListener('click', () => {
 });
 
 /* Submit the form */
-
 form.addEventListener('submit', sendFormData);
-
 async function sendFormData(evt) {
     evt.preventDefault();
 
-    if (password.value !== confirmPassword.value) {
+    if (email && password.value !== confirmPassword.value) {
         matchMessage.style.opacity = "1";
         matchMessage.style.zIndex = "1";
         return;
@@ -122,21 +123,17 @@ async function sendFormData(evt) {
 
     await axios.request(options)
         .then(response => {
-            console.log(response);
-            //loader.classList.add('d-none');
-            //failureMessage.classList.add("d-none");
+            response.textContent = response.data;
 
-            //username.value = "";
-            //password.value = "";
-            //if (email) {
-            //    email.value = "";
-            //}
+            username.value = "";
+            password.value = "";
+            if (email) {
+               email.value = "";
+            }
 
             //document.querySelector('.pageNavigationLink').click();
         })
         .catch(err => {
-            // loader.classList.add('d-none');            
-            // failureMessage.classList.remove("d-none");
-            // failureMessage.textContent = err.response.data;
+            response.textContent = err.response.data;
         })
 }
