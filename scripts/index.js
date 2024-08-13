@@ -72,6 +72,7 @@ const emailContainer = form.querySelector('.email-container');
 const confirmPasswordContainer = form.querySelector('.confirm-password-container');
 const submitBtn = form.querySelector('.submit-button');
 const response = document.querySelector('.response');
+const loader = document.querySelector('.loader');
 
 signInBtn.addEventListener('click', () => {
     emailContainer.style.display = "none";
@@ -93,6 +94,7 @@ signUpBtn.addEventListener('click', () => {
 form.addEventListener('submit', sendFormData);
 async function sendFormData(evt) {
     evt.preventDefault();
+    loader.style.display = "flex";
 
     if (email && password.value !== confirmPassword.value) {
         matchMessage.style.opacity = "1";
@@ -122,18 +124,28 @@ async function sendFormData(evt) {
     };
 
     await axios.request(options)
-        .then(response => {
-            response.textContent = response.data;
+        .then(res => {
+            response.textContent = res.data;
 
-            username.value = "";
-            password.value = "";
-            if (email) {
-               email.value = "";
+            loader.style.display = "none";
+            if (res.data === 'Account created successfully.'){
+                response.style.backgroundColor = "green";
+
+                username.value = "";
+                password.value = "";
+                if (email) {
+                   email.value = "";
+                   confirmPassword.value = "";
+                }
             }
-
+            else{
+                response.style.backgroundColor = "#880808";
+            }
             //document.querySelector('.pageNavigationLink').click();
         })
         .catch(err => {
+            loader.style.display = "none";
             response.textContent = err.response.data;
+            response.style.backgroundColor = "#880808";
         })
 }

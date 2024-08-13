@@ -17,6 +17,20 @@ button{
     cursor: pointer;
 }
 
+.loader{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.loader img {
+    animation: 2s linear infinite load;
+}
+
 .wrapper{
     max-width: 800px;
     margin: auto;
@@ -103,6 +117,8 @@ button{
 
 .response{
     margin-bottom: 3px;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
     text-align: center;
 }
 
@@ -142,5 +158,11 @@ button{
 
     .submit-button{
         font-size: 18px;
+    }
+}
+
+@keyframes load{
+    to{
+        transform: rotate(360deg);
     }
 }
