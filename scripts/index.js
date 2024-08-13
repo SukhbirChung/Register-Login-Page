@@ -105,10 +105,10 @@ async function sendFormData(evt) {
 
     if (email) {
         dataToBeSent.email = email.value;
-        url = 'https://mongooseconnections.registerlogin.ca/signup';
+        url = 'https://backendapplication.registerlogin.ca/signup';
     }
     else {
-        url = 'https://mongooseconnections.registerlogin.ca/login';
+        url = 'https://backendapplication.registerlogin.ca/login';
     }
 
     const options = {
