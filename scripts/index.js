@@ -1,9 +1,13 @@
-const inputs = document.querySelectorAll('input');
-const [username, email, password, confirmPassword] = [...inputs];
 
-/* Show/hide password in login and signup forms*/
+const loader = document.querySelector('.loader');
+const formContainer = document.querySelector('.form-container');
+const form = formContainer.querySelector('.form');
+const username = formContainer.querySelector('#username');
+const password = formContainer.querySelector('#password');
 const showHidePasswordBtns = document.querySelectorAll('.showHidePassword');
+const response = formContainer.querySelector('.response');
 
+/* Show/hide password */
 showHidePasswordBtns[1].addEventListener('click', () => {
     showHidePasswordBtns[1].style.display = "none";
     password.setAttribute('type', 'text');
@@ -13,108 +17,17 @@ showHidePasswordBtns[0].addEventListener('click', () => {
     password.setAttribute('type', 'password');
 });
 
-showHidePasswordBtns[3].addEventListener('click', () => {
-    showHidePasswordBtns[3].style.display = "none";
-    confirmPassword.setAttribute('type', 'text');
-});
-showHidePasswordBtns[2].addEventListener('click', () => {
-    showHidePasswordBtns[3].style.display = "initial";
-    confirmPassword.setAttribute('type', 'password');
-});
-
-/* No spaces allowed in password input field */
-password.addEventListener('input', checkForSpecifications);
-password.addEventListener('focusout', hideSpecificationMessage);
-const specificationMessage = document.querySelector('.check-for-specifications');
-
-function checkForSpecifications() {
-    if (this.value.includes(' ')) {
-        this.value = this.value.substring(0, this.value.length - 1);
-        specificationMessage.style.opacity = "1";
-        specificationMessage.style.zIndex = "1";
-    } else {
-        specificationMessage.style.opacity = "0";
-        specificationMessage.style.zIndex = "-1";
-    }
-}
-
-function hideSpecificationMessage() {
-    specificationMessage.style.opacity = "0";
-    specificationMessage.style.zIndex = "-1";
-}
-
-/* Check if the passwords match */
-confirmPassword.addEventListener('input', checkForMatch);
-confirmPassword.addEventListener('focusout', hideMatchMessage);
-const matchMessage = document.querySelector('.check-for-match');
-
-function checkForMatch() {
-    if (this.value !== password.value.substring(0, this.value.length)) {
-        matchMessage.style.opacity = "1";
-        matchMessage.style.zIndex = "1";
-    }
-    else {
-        matchMessage.style.opacity = "0";
-        matchMessage.style.zIndex = "-1";
-    }
-}
-
-function hideMatchMessage() {
-    matchMessage.style.opacity = "0";
-    matchMessage.style.zIndex = "-1";
-}
-
-/* Switch between Signin and Signup forms */
-const form = document.querySelector('form');
-const signInBtn = document.querySelector('.signin-button');
-const signUpBtn = document.querySelector('.signup-button');
-const emailContainer = form.querySelector('.email-container');
-const confirmPasswordContainer = form.querySelector('.confirm-password-container');
-const submitBtn = form.querySelector('.submit-button');
-const response = document.querySelector('.response');
-const loader = document.querySelector('.loader');
-
-signInBtn.addEventListener('click', () => {
-    emailContainer.style.display = "none";
-    confirmPasswordContainer.style.display = "none";
-    submitBtn.textContent = "SIGN IN";
-    signInBtn.style.borderBottom = "1px solid black";
-    signUpBtn.style.borderBottom = "none";
-});
-
-signUpBtn.addEventListener('click', () => {
-    emailContainer.style.display = "block";
-    confirmPasswordContainer.style.display = "block";
-    submitBtn.textContent = "CREATE ACCOUNT";
-    signInBtn.style.borderBottom = "none";
-    signUpBtn.style.borderBottom = "1px solid black";
-});
-
-/* Submit the form */
+/* Submit the form data */
 form.addEventListener('submit', sendFormData);
+
 async function sendFormData(evt) {
     evt.preventDefault();
     loader.style.display = "flex";
 
-    if (email && password.value !== confirmPassword.value) {
-        matchMessage.style.opacity = "1";
-        matchMessage.style.zIndex = "1";
-        return;
-    }
-
-    let url = '';
-
+    const url = 'https://backendapplication.registerlogin.ca/login';
     const dataToBeSent = {
         username: username.value,
         password: password.value
-    }
-
-    if (email) {
-        dataToBeSent.email = email.value;
-        url = 'https://backendapplication.registerlogin.ca/signup';
-    }
-    else {
-        url = 'https://backendapplication.registerlogin.ca/login';
     }
 
     const options = {
@@ -125,27 +38,25 @@ async function sendFormData(evt) {
 
     await axios.request(options)
         .then(res => {
+            loader.style.display = "none";
             response.textContent = res.data;
 
-            loader.style.display = "none";
-            if (res.data === 'Account created successfully.'){
-                response.style.backgroundColor = "green";
+            if (res.data === 'Logged in successfully.'){
+                response.classList.add('response-success');
+                response.classList.remove('response-failure');
 
                 username.value = "";
                 password.value = "";
-                if (email) {
-                   email.value = "";
-                   confirmPassword.value = "";
-                }
             }
             else{
-                response.style.backgroundColor = "#880808";
+                response.classList.remove('response-success');
+                response.classList.add('response-failure');
             }
-            //document.querySelector('.pageNavigationLink').click();
         })
         .catch(err => {
             loader.style.display = "none";
             response.textContent = err.response.data;
-            response.style.backgroundColor = "#880808";
+            response.classList.remove('response-success');
+            response.classList.add('response-failure');
         })
 }

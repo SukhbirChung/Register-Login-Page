@@ -62,13 +62,19 @@ button{
     margin-bottom: 30px;
 }
 
-.form{
-    margin-bottom: 8px;
+.form-buttons a{
+    text-decoration: none;
+    color: black;
+    font-size: 0.9rem;
 }
 
-.signup-button{
+.signin-button{
     border-bottom: 1px solid black;
     margin-right: 10px;
+}
+
+.form{
+    margin-bottom: 8px;
 }
 
 .form-input-container{
@@ -96,16 +102,6 @@ button{
     right: 0;
 }
 
-.check-for-specifications, .check-for-match{
-    opacity: 0;
-    z-index: -1;
-    position: absolute;
-    border: 1px solid black;
-    border-radius: 3px;
-    padding: 8px;
-    background-color: white;
-}
-
 .submit-button{
     width: 100%;
     border-radius: 16px;
@@ -115,21 +111,20 @@ button{
     font-size: 14px;
 }
 
-.response{
-    margin-bottom: 3px;
+.response{    
     border-radius: 0.25rem;
     padding: 0.25rem;
     text-align: center;
 }
 
-.terms-and-privacy{
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 13px;
-    display: flex;
+.response-success{
+    background-color: green;
+    color: black;
 }
 
-.terms-and-privacy label{
-    padding-left: 8px;
+.response-failure{
+    background-color: #880808;
+    color: white;
 }
 
 @media(min-width: 700px){

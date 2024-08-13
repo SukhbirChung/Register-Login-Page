@@ -1,0 +1,31 @@
+.signin-button{
+    border-bottom: none;
+}
+
+.signup-button{
+    border-bottom: 1px solid black;
+}
+
+.check-for-specifications, .check-for-match{
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 8px;
+    background-color: white;
+}
+
+.response{
+    margin-bottom: 3px;
+}
+
+.terms-and-privacy{
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 13px;
+    display: flex;
+}
+
+.terms-and-privacy label{
+    padding-left: 8px;
+}
