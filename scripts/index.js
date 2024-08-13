@@ -1,5 +1,5 @@
 const inputs = document.querySelectorAll('input');
-const [email, password, confirmPassword] = [...inputs];
+const [username, email, password, confirmPassword] = [...inputs];
 
 /* Show/hide password in login and signup forms*/
 const showHidePasswordBtns = document.querySelectorAll('.showHidePassword');
@@ -61,21 +61,79 @@ function hideMatchMessage(value) {
 }
 
 /* Switch between Signin and Signup forms */
+const form = document.querySelector('form');
 const signInBtn = document.querySelector('.signin-button');
 const signUpBtn = document.querySelector('.signup-button');
-const confirmPasswordContainer = document.querySelector('.confirm-password-container');
-const submitBtn = document.querySelector('.submit-button');
+const emailContainer = form.querySelector('.email-container');
+const confirmPasswordContainer = form.querySelector('.confirm-password-container');
+const submitBtn = form.querySelector('.submit-button');
 
-signInBtn.addEventListener('click', ()=>{
+signInBtn.addEventListener('click', () => {
+    emailContainer.style.display = "none";
     confirmPasswordContainer.style.display = "none";
     submitBtn.textContent = "SIGN IN";
     signInBtn.style.borderBottom = "1px solid black";
     signUpBtn.style.borderBottom = "none";
 });
 
-signUpBtn.addEventListener('click', ()=>{
+signUpBtn.addEventListener('click', () => {
+    emailContainer.style.display = "block";
     confirmPasswordContainer.style.display = "block";
     submitBtn.textContent = "CREATE ACCOUNT";
     signInBtn.style.borderBottom = "none";
     signUpBtn.style.borderBottom = "1px solid black";
 });
+
+/* Submit the form */
+
+form.addEventListener('submit', sendFormData);
+
+async function sendFormData(evt) {
+    evt.preventDefault();
+
+    if (password.value !== confirmPassword.value) {
+        hideMatchMessage("1");
+        return;
+    }
+
+    let url = '';
+
+    const dataToBeSent = {
+        username: username.value,
+        password: password.value
+    }
+
+    if (email) {
+        dataToBeSent.email = email.value;
+        url = 'https://backendapplication.registerlogin.ca/signup';
+    }
+    else {
+        url = 'https://backendapplication.registerlogin.ca/login';
+    }
+
+    const options = {
+        method: 'POST',
+        url: url,
+        data: dataToBeSent
+    };
+
+    await axios.request(options)
+        .then(response => {
+            console.log(response);
+            //loader.classList.add('d-none');
+            //failureMessage.classList.add("d-none");
+
+            //username.value = "";
+            //password.value = "";
+            //if (email) {
+            //    email.value = "";
+            //}
+
+            //document.querySelector('.pageNavigationLink').click();
+        })
+        .catch(err => {
+            // loader.classList.add('d-none');            
+            // failureMessage.classList.remove("d-none");
+            // failureMessage.textContent = err.response.data;
+        })
+}
