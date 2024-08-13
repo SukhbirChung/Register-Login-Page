@@ -48,10 +48,12 @@ const matchMessage = document.querySelector('.check-for-match');
 
 function checkForMatch() {
     if (this.value !== password.value.substring(0, this.value.length)) {
-        hideMatchMessage("1");
+        matchMessage.style.opacity = "1";
+        matchMessage.style.zIndex = "1";
     }
     else {
-        hideMatchMessage("0");
+        matchMessage.style.opacity = "0";
+        matchMessage.style.zIndex = "-1";
     }
 }
 
@@ -92,7 +94,8 @@ async function sendFormData(evt) {
     evt.preventDefault();
 
     if (password.value !== confirmPassword.value) {
-        hideMatchMessage("1");
+        matchMessage.style.opacity = "1";
+        matchMessage.style.zIndex = "1";
         return;
     }
 

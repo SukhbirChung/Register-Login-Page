@@ -84,6 +84,7 @@ button{
 
 .check-for-specifications, .check-for-match{
     opacity: 0;
+    z-index: -1;
     position: absolute;
     border: 1px solid black;
     border-radius: 3px;
