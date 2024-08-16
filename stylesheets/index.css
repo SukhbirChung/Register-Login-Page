@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     min-height: 100vh;
     background-color: #dedcdd;
     display: flex;
@@ -10,17 +10,17 @@ body{
     align-items: center;
 }
 
-button{
+button {
     border: none;
     background: none;
     font-family: inherit;
     cursor: pointer;
 }
 
-.loader{
+.loader {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0, 0, 0, 0.75);
     display: none;
     justify-content: center;
     align-items: center;
@@ -31,28 +31,28 @@ button{
     animation: 2s linear infinite load;
 }
 
-.wrapper{
+.wrapper {
     max-width: 800px;
     margin: auto;
     border: 15px solid #a5a5a5;
     border-radius: 30px;
     padding-block: 50px;
-    background-image: url(../images/background.svg);
-    background-size: cover;
-    background-position: center;
+    background: #f0efdb;
+    background: -webkit-linear-gradient(to right, #f0efdb, #d38ad9, #7556b3);
+    background: linear-gradient(to right, #f0efdb, #d38ad9, #7556b3);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }
 
-.welcome-screen{
+.welcome-screen {
     text-align: center;
 }
 
-.welcome-screen-heading{
+.welcome-screen-heading {
     font-family: "Big Shoulders Display", sans-serif;
-    font-size: 40px;    
+    font-size: 40px;
 }
 
-.form-container{
+.form-container {
     width: 75%;
     margin: auto;
     font-family: "Barlow Semi Condensed", sans-serif;
@@ -62,22 +62,22 @@ button{
     margin-bottom: 30px;
 }
 
-.form-buttons a{
+.form-buttons a {
     text-decoration: none;
     color: black;
     font-size: 0.9rem;
 }
 
-.signin-button{
+.signin-button {
     border-bottom: 1px solid black;
     margin-right: 10px;
 }
 
-.form{
+.form {
     margin-bottom: 8px;
 }
 
-.form-input-container{
+.form-input-container {
     margin-bottom: 20px;
     position: relative;
 }
@@ -88,7 +88,7 @@ button{
     font-size: 15px;
 }
 
-.form-input{
+.form-input {
     width: 100%;
     border: none;
     border-bottom: 1px solid black;
@@ -96,13 +96,13 @@ button{
     outline: none;
 }
 
-.showHidePassword{
+.showHidePassword {
     position: absolute;
     bottom: 0;
     right: 0;
 }
 
-.submit-button{
+.submit-button {
     width: 100%;
     border-radius: 16px;
     padding-block: 8px;
@@ -111,53 +111,55 @@ button{
     font-size: 14px;
 }
 
-.response{    
+.response {
     border-radius: 0.25rem;
     padding: 0.25rem;
     text-align: center;
 }
 
-.response-success{
+.response-success {
     background-color: green;
     color: black;
 }
 
-.response-failure{
+.response-failure {
     background-color: #880808;
     color: white;
 }
 
-@media(min-width: 700px){
-    .wrapper{
+@media(min-width: 700px) {
+    .wrapper {
         display: flex;
     }
 
-    .welcome-screen{
+    .welcome-screen {
         display: flex;
         flex-direction: column;
         justify-content: center;
         border-right: 1px solid black;
     }
 
-    .welcome-screen-heading{
-        font-size: 80px;    
+    .welcome-screen-heading {
+        font-size: 80px;
     }
 
-    .form-container{
+    .form-container {
         padding-inline: 30px;
     }
 
-    .signup-button, .signin-button, .form-label{
+    .signup-button,
+    .signin-button,
+    .form-label {
         font-size: 20px;
     }
 
-    .submit-button{
+    .submit-button {
         font-size: 18px;
     }
 }
 
-@keyframes load{
-    to{
+@keyframes load {
+    to {
         transform: rotate(360deg);
     }
 }
