@@ -17,20 +17,6 @@ button {
     cursor: pointer;
 }
 
-.loader {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.75);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-}
-
-.loader img {
-    animation: 2s linear infinite load;
-}
-
 .wrapper {
     max-width: 800px;
     margin: auto;
@@ -73,58 +59,10 @@ button {
     margin-right: 10px;
 }
 
-.form {
-    margin-bottom: 8px;
-}
-
-.form-input-container {
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.form-label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 15px;
-}
-
-.form-input {
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid black;
-    background: none;
-    outline: none;
-}
-
-.showHidePassword {
+.forgot-password{
     position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-.submit-button {
-    width: 100%;
-    border-radius: 16px;
-    padding-block: 8px;
-    background-color: #211452;
-    color: white;
-    font-size: 14px;
-}
-
-.response {
-    border-radius: 0.25rem;
-    padding: 0.25rem;
-    text-align: center;
-}
-
-.response-success {
-    background-color: green;
-    color: black;
-}
-
-.response-failure {
-    background-color: #880808;
-    color: white;
+    display: block;
+    margin-top: 0.25rem;
 }
 
 @media(min-width: 700px) {
@@ -151,15 +89,5 @@ button {
     .signin-button,
     .form-label {
         font-size: 20px;
-    }
-
-    .submit-button {
-        font-size: 18px;
-    }
-}
-
-@keyframes load {
-    to {
-        transform: rotate(360deg);
     }
 }

@@ -1,11 +1,5 @@
-
-const loader = document.querySelector('.loader');
-const formContainer = document.querySelector('.form-container');
-const form = formContainer.querySelector('.form');
-const inputs = form.querySelectorAll('.form-input');
 const showHidePasswordBtns = document.querySelectorAll('.showHidePassword');
-const response = formContainer.querySelector('.response');
-
+const inputs = document.querySelectorAll('.form-input');
 const [username, email, password, confirmPassword] = [...inputs];
 
 /* Show/hide password */
@@ -84,51 +78,4 @@ function checkForMatch() {
 function hideMatchMessage() {
     matchMessage.style.opacity = "0";
     matchMessage.style.zIndex = "-1";
-}
-
-/* Submit the form data */
-form.addEventListener('submit', sendFormData);
-
-async function sendFormData(evt) {
-    evt.preventDefault();
-    loader.style.display = "flex";
-
-    const url = 'https://backendapplication.registerlogin.ca/signup';
-    const dataToBeSent = {
-        email: email.value,
-        username: username.value,
-        password: password.value
-    }
-
-    const options = {
-        method: 'POST',
-        url: url,
-        data: dataToBeSent
-    };
-
-    await axios.request(options)
-        .then(res => {
-            loader.style.display = "none";
-            response.textContent = res.data;
-
-            if (res.data === 'Account created successfully.'){
-                response.classList.add('response-success');
-                response.classList.remove('response-failure');
-
-                email.value = "";
-                username.value = "";
-                password.value = "";
-                confirmPassword.value = "";
-            }
-            else{
-                response.classList.remove('response-success');
-                response.classList.add('response-failure');
-            }
-        })
-        .catch(err => {
-            loader.style.display = "none";
-            response.textContent = err.response.data;
-            response.classList.remove('response-success');
-            response.classList.add('response-failure');
-        })
 }

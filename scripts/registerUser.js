@@ -1,25 +1,23 @@
-/* Sign out */
-const loader = document.querySelector('.loader');
-const signOutBtn = document.querySelector('.signout-btn');
-const response = document.querySelector('.response');
-
-signOutBtn.addEventListener('click', logOut);
-
-async function logOut() {
+async function registerUser() {
     loader.style.display = "flex";
 
-    const url = 'http://localhost:3001/logout';
+    const url = 'http://localhost:3001/signup'
+    const dataToBeSent = {
+        email: email.value,
+        username: username.value,
+        password: password.value,
+    }
 
     const options = {
         method: 'POST',
         url: url,
-        credentials: 'include'
+        data: dataToBeSent
     };
 
     await axios.request(options)
         .then(res => {
             loader.style.display = "none";
-            window.location.href = '../index.html';
+            window.location.href = 'userHomepage.html';
         })
         .catch(err => {
             loader.style.display = "none";

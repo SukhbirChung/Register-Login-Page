@@ -18,16 +18,31 @@
 
     <link rel="stylesheet" type="text/css" href="../stylesheets/CSSReset.css" />
     <link rel="stylesheet" type="text/css" href="../stylesheets/index.css" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/loader.css" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/response.css" />
     <link rel="stylesheet" type="text/css" href="../stylesheets/signup.css" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/form.css" />
 
     <title>Register Login Landing Page</title>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../scripts/signup.js" defer></script>
+    <script src="../scripts/checkUserExists.js" defer></script>
+    <script src="../scripts/sendConfirmationCode.js" defer></script>
+    <script src="../scripts/getConfirmationCode.js" defer></script>
+    <script src="../scripts/registerUser.js" defer></script>
 </head>
 
 <body>
     <div class="loader"><img src="../images/loader.png" alt="loader icon"></div>
+    <div class="confirmation-code-container">
+        <p>Enter the 6-digit conformation code sent to your email to finish signing up:</p>
+        <form class="confirmation-code-form">
+            <input type="text" class="confirmation-code">
+            <button type="submit">Continue</button>
+        </form>
+        <p class="timer">60</p>
+    </div>
 
     <div class="wrapper">
         <div class="welcome-screen">
@@ -94,13 +109,10 @@
             </div>
 
             <div class="response"></div>
-
-            <div class="terms-and-privacy">
-                <input type="checkbox" />
-                <label>Creating an account means you're okay with our terms of service and our privacy policy</label>
-            </div>
         </div>
     </div>
+
+    <!-- <a href="userHomepage.html" class="user-homepage-link"></a> -->
 </body>
 
 </html>

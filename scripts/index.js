@@ -1,11 +1,10 @@
-
 const loader = document.querySelector('.loader');
 const formContainer = document.querySelector('.form-container');
 const form = formContainer.querySelector('.form');
 const username = formContainer.querySelector('#username');
 const password = formContainer.querySelector('#password');
 const showHidePasswordBtns = document.querySelectorAll('.showHidePassword');
-const response = formContainer.querySelector('.response');
+const response = document.querySelector('.response');
 
 /* Show/hide password */
 showHidePasswordBtns[1].addEventListener('click', () => {
@@ -18,13 +17,13 @@ showHidePasswordBtns[0].addEventListener('click', () => {
 });
 
 /* Submit the form data */
-form.addEventListener('submit', sendFormData);
+form.addEventListener('submit', signIn);
 
-async function sendFormData(evt) {
+async function signIn(evt) {
     evt.preventDefault();
     loader.style.display = "flex";
 
-    const url = 'https://backendapplication.registerlogin.ca/login';
+    const url = 'http://localhost:3001/login';
     const dataToBeSent = {
         username: username.value,
         password: password.value
@@ -39,19 +38,7 @@ async function sendFormData(evt) {
     await axios.request(options)
         .then(res => {
             loader.style.display = "none";
-            response.textContent = res.data;
-
-            if (res.data === 'Logged in successfully.'){
-                response.classList.add('response-success');
-                response.classList.remove('response-failure');
-
-                username.value = "";
-                password.value = "";
-            }
-            else{
-                response.classList.remove('response-success');
-                response.classList.add('response-failure');
-            }
+            window.location.href = 'webpages/userHomepage.html';
         })
         .catch(err => {
             loader.style.display = "none";
@@ -60,3 +47,10 @@ async function sendFormData(evt) {
             response.classList.add('response-failure');
         })
 }
+
+/* Forgot Password */
+const forgotPassword = document.querySelector('.forgot-password');
+
+forgotPassword.addEventListener('click', ()=>{
+    window.location.href = 'webpages/forgotPassword.html';
+});
