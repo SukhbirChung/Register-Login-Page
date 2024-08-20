@@ -6,6 +6,7 @@ let receivedConfirmationCode;
 
 async function sendConfirmationCode() {
     const url = 'http://localhost:3000/confirmation';
+    //const url = 'https://nodemailer.paptido.com/confirmation';
     const dataToBeSent = {
         email: email.value
     }

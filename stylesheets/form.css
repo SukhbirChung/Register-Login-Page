@@ -4,7 +4,7 @@ button{
     background: none;
 }
 
-.reset-password-form-container{
+.reset-password-form-container, .forgot-password-form-container{
     max-width: 300px;
 }
 

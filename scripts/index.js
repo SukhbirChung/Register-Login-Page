@@ -23,7 +23,8 @@ async function signIn(evt) {
     evt.preventDefault();
     loader.style.display = "flex";
 
-    const url = 'http://localhost:3001/login';
+    //const url = 'http://localhost:3001/login';
+    const url = 'https://backendapplication.registerlogin.ca/login';
     const dataToBeSent = {
         username: username.value,
         password: password.value
@@ -32,19 +33,41 @@ async function signIn(evt) {
     const options = {
         method: 'POST',
         url: url,
-        data: dataToBeSent
+        data: dataToBeSent,
+        withCredentials: true
     };
 
     await axios.request(options)
         .then(res => {
             loader.style.display = "none";
-            window.location.href = 'webpages/userHomepage.html';
+            console.log(res);
+            //test();
+            //window.location.href = 'webpages/userHomepage.html';
         })
         .catch(err => {
             loader.style.display = "none";
             response.textContent = err.response.data;
             response.classList.remove('response-success');
             response.classList.add('response-failure');
+        })
+}
+
+async function test() {
+    const url = 'https://backendapplication.registerlogin.ca/isLoggedIn';
+    const options = {
+        method: 'POST',
+        url: url,
+        withCredentials: true
+    };
+
+    await axios.request(options)
+        .then(res => {
+            loader.style.display = "none";
+            console.log(res);
+            
+        })
+        .catch(err => {
+            console.log(err);
         })
 }
 

@@ -1,7 +1,8 @@
 async function registerUser() {
     loader.style.display = "flex";
 
-    const url = 'http://localhost:3001/signup'
+    //const url = 'http://localhost:3001/signup';
+    const url = 'https://backendapplication.registerlogin.ca/signup';
     const dataToBeSent = {
         email: email.value,
         username: username.value,
@@ -11,13 +12,15 @@ async function registerUser() {
     const options = {
         method: 'POST',
         url: url,
-        data: dataToBeSent
+        data: dataToBeSent,
+        withCredentials: true
     };
 
     await axios.request(options)
         .then(res => {
             loader.style.display = "none";
-            window.location.href = 'userHomepage.html';
+            console.log(res);
+            //window.location.href = 'userHomepage.html';
         })
         .catch(err => {
             loader.style.display = "none";

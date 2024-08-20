@@ -8,7 +8,8 @@ async function sendResetLink(evt) {
     evt.preventDefault();
     loader.style.display = 'flex';
 
-    const url = 'http://localhost:3001/sendResetLink';
+    //const url = 'http://localhost:3001/sendResetLink';
+    const url = 'https://backendapplication.registerlogin.ca/sendResetLink';
     const dataToBeSent = {
         email: email.value
     }
@@ -16,7 +17,8 @@ async function sendResetLink(evt) {
     const options = {
         method: 'POST',
         url: url,
-        data: dataToBeSent
+        data: dataToBeSent,
+        withCredentials: true
     }
 
     await axios.request(options)

@@ -7,9 +7,18 @@ form.addEventListener('submit', checkUserExists);
 
 async function checkUserExists(evt) {
     evt.preventDefault();
+
+    /* Passwords must match on form submission */
+    if(password.value !== confirmPassword.value){
+        matchMessage.style.opacity = "1";
+        matchMessage.style.zIndex = "1";
+        return;
+    }
+
     loader.style.display = "flex";
 
-    const url = 'http://localhost:3001/checkUserExists';
+    //const url = 'http://localhost:3001/checkUserExists';
+    const url = 'https://backendapplication.registerlogin.ca/checkUserExists';
     const dataToBeSent = {
         email: email.value,
         username: username.value
@@ -18,7 +27,8 @@ async function checkUserExists(evt) {
     const options = {
         method: 'POST',
         url: url,
-        data: dataToBeSent
+        data: dataToBeSent,
+        withCredentials: true
     };
 
     await axios.request(options)
