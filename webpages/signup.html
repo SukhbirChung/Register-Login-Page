@@ -58,14 +58,15 @@
             </div>
 
             <div class="form">
-                <form>
+                <form novalidate>
                     <div class="form-input-container">
                         <label class="form-label" for="username">USERNAME</label>
                         <input class="form-input" type="text" id="username" name="username" required
                             placeholder="Username" />
                             <div class="check-for-specifications">
-                                <ul>
+                                <ul style="list-style: disc; list-style-position: inside;">
                                     <li>Spaces not allowed</li>
+                                    <li>Username cannot be empty</li>
                                 </ul>
                             </div>
                     </div>
@@ -73,19 +74,30 @@
                         <label class="form-label" for="email">EMAIL</label>
                         <input class="form-input" type="email" id="email" name="email" required
                             placeholder="name@domain.com" />
+                            <div class="check-for-specifications">
+                                <ul style="list-style: disc; list-style-position: inside;">
+                                    <li>Spaces not allowed</li>
+                                    <li>Please enter a valid email address</li>
+                                </ul>
+                            </div>
                     </div>
                     <div class="form-input-container">
                         <label class="form-label" for="password">PASSWORD</label>
                         <input class="form-input" type="password" id="password" name="password" required
-                            placeholder="Password" maxlength="12" />
+                            placeholder="Password" minlength="8" maxlength="12" />
                         <button type="button" class="showHidePassword"><img src="../images/showPassword-icon.png"
                                 alt="Show Password icon" width="20" /></button>
                         <button type="button" class="showHidePassword"><img src="../images/hidePassword-icon.png"
                                 alt="Hide Password icon" width="20" /></button>
                         <div class="check-for-specifications">
                             <ul style="list-style: disc; list-style-position: inside;">
-                                <li>Spaces not allowed</li>
+                                <li style="display: none;">Must not have any spaces</li>
+                                <li>Must be at least 8 characters long</li>
                                 <li>Maximum length allowed is 12</li>
+                                <li>Must inlcude an uppercase letter</li>
+                                <li>Must inlcude a lowercase letter</li>
+                                <li>Must inlcude a special character</li>
+                                <li>Must inlcude a number</li>
                             </ul>
                         </div>
                     </div>
@@ -111,8 +123,6 @@
             <div class="response"></div>
         </div>
     </div>
-
-    <!-- <a href="userHomepage.html" class="user-homepage-link"></a> -->
 </body>
 
 </html>
