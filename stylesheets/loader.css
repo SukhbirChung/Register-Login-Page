@@ -1,22 +1,2 @@
-.loader, .confirmation-code-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-}
-
-.loader img {
-    animation: 2s linear infinite load;
-}
-
-@keyframes load {
-    to {
-        transform: rotate(360deg);
-    }
-}
+/* OBFUSCATED BY CSSOBFUSCATOR.COM at 2024/08/19 20:38:10 */
+[class~=loader],[class~=confirmation-code-container]{position:absolute;}[class~=confirmation-code-container],[class~=loader]{top:0;}[class~=loader],[class~=confirmation-code-container]{left:0;}[class~=confirmation-code-container],[class~=loader]{right:0;}[class~=loader],[class~=confirmation-code-container]{bottom:0;}[class~=confirmation-code-container],[class~=loader]{background-color:rgba(0,0,0,.8);}[class~=confirmation-code-container],[class~=loader]{display:none;}[class~=confirmation-code-container],[class~=loader]{justify-content:center;}[class~=confirmation-code-container],[class~=loader]{align-items:center;}[class~=confirmation-code-container],[class~=loader]{z-index:1;}.loader img{animation:2s linear infinite load;}@keyframes load{to{transform:rotate(360deg);}}

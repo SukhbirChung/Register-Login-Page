@@ -23,7 +23,7 @@ async function signIn(evt) {
     evt.preventDefault();
     loader.style.display = "flex";
 
-    const url = 'http://localhost:3001/login';
+    const url = 'https://backendapplication.registerlogin.ca/login';
     const dataToBeSent = {
         username: username.value,
         password: password.value
@@ -39,7 +39,7 @@ async function signIn(evt) {
     await axios.request(options)
         .then(res => {
             loader.style.display = "none";
-            console.log(res);
+            window.location.href = 'webpages/userHomepage.html';
         })
         .catch(err => {
             loader.style.display = "none";

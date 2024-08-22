@@ -97,12 +97,12 @@ async function resetPassword(evt) {
 
     loader.style.display = 'flex';
 
-    const url = 'http://localhost:3001/resetPassword';
+    const url = 'https://backendapplication.registerlogin.ca/resetPassword';
     const dataToBeSent = {
         token: token,
         newPassword: newPassword.value
     }
-    console.log(dataToBeSent);
+
     const options = {
         method: 'POST',
         url: url,
@@ -112,13 +112,13 @@ async function resetPassword(evt) {
     await axios.request(options)
         .then((res) => {
             loader.style.display = 'none';
-            response.textContent = `${res.data} Redirecting to login page soon...`;
+            response.textContent = `${res.data} Redirecting to your login page soon...`;
             response.classList.add('response-success');
             response.classList.remove('response-failure');
-
-            setTimeout(() => {
+            
+            setTimeout(()=>{
                 window.location.href = '../index.html';
-            }, 3000)
+            },4000);
         })
         .catch((err) => {
             loader.style.display = 'none';

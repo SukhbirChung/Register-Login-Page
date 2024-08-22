@@ -1,19 +1,2 @@
-.user-content{
-    padding: 2rem 1rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.user-homepage-heading{
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.signout-btn{
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: #211452;
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
-}
+/* OBFUSCATED BY CSSOBFUSCATOR.COM at 2024/08/19 20:38:38 */
+[class~=signout-btn],.user-content{padding-left:1rem;}.user-content{padding-bottom:2rem;}[class~=signout-btn],.user-content{padding-right:1rem;}.user-content{padding-top:2rem;}.user-content{display:flex;}.user-content{justify-content:space-between;}[class~=user-homepage-heading]{font-size:2rem;}[class~=user-homepage-heading]{font-weight:bold;}[class~=signout-btn]{border-radius:.5rem;}[class~=signout-btn]{padding-bottom:.5rem;}[class~=signout-btn]{padding-top:.5rem;}[class~=signout-btn]{background-color:#211452;}[class~=signout-btn]{color:white;}[class~=signout-btn]{font-size:.145833333in;}[class~=signout-btn]{cursor:pointer;}

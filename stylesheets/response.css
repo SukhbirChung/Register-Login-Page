@@ -1,17 +1,2 @@
-.response {
-    width: max-content;
-    margin: auto;
-    border-radius: 0.25rem;
-    padding: 0.5rem;
-    text-align: center;
-}
-
-.response-success {
-    background-color: green;
-    color: black;
-}
-
-.response-failure {
-    background-color: #880808;
-    color: white;
-}
+/* OBFUSCATED BY CSSOBFUSCATOR.COM at 2024/08/19 20:38:19 */
+[class~=response]{width:max-content;}[class~=response]{margin-left:auto;}[class~=response]{margin-bottom:auto;}[class~=response]{margin-right:auto;}[class~=response]{margin-top:auto;}[class~=response]{border-radius:.25rem;}[class~=response]{padding-left:.5rem;}[class~=response]{padding-bottom:.5rem;}[class~=response]{padding-right:.5rem;}[class~=response]{padding-top:.5rem;}[class~=response]{text-align:center;}[class~=response-success]{background-color:green;}[class~=response-success]{color:black;}[class~=response-failure]{background-color:#880808;}[class~=response-failure]{color:white;}

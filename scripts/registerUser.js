@@ -1,7 +1,7 @@
 async function registerUser() {
     loader.style.display = "flex";
 
-    const url = 'http://localhost:3001/signup';
+    const url = 'https://backendapplication.registerlogin.ca/signup';
     const dataToBeSent = {
         email: email.value,
         username: username.value,
@@ -18,7 +18,7 @@ async function registerUser() {
     await axios.request(options)
         .then(res => {
             loader.style.display = "none";
-            console.log(res);
+            window.location.href = 'userHomepage.html';
         })
         .catch(err => {
             loader.style.display = "none";

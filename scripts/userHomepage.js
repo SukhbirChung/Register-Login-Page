@@ -6,7 +6,7 @@ window.addEventListener('load', isLoggedIn);
 async function isLoggedIn() {
     loader.style.display = "flex";
 
-    const url = 'http://localhost:3001/isLoggedIn';
+    const url = 'https://backendapplication.registerlogin.ca/isLoggedIn';
     const options = {
         method: 'POST',
         url: url,
@@ -16,12 +16,10 @@ async function isLoggedIn() {
     await axios.request(options)
         .then(res => {
             loader.style.display = "none";
-            console.log(res);
         })
         .catch(err => {
             loader.style.display = "none";
-            console.log(err);
-
+            window.location.href = '../index.html';
         })
 }
 
@@ -34,8 +32,8 @@ signOutBtn.addEventListener('click', logOut);
 async function logOut(evt) {
     loader.style.display = "flex";
     evt.preventDefault();
-    
-    const url = 'http://localhost:3001/logout';
+
+    const url = 'https://backendapplication.registerlogin.ca/logout';
     const options = {
         method: 'POST',
         url: url,
@@ -45,8 +43,7 @@ async function logOut(evt) {
     await axios.request(options)
         .then(res => {
             loader.style.display = "none";
-            console.log(res);
-
+            window.location.href = '../index.html';
         })
         .catch(err => {
             loader.style.display = "none";
