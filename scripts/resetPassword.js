@@ -97,7 +97,7 @@ async function resetPassword(evt) {
 
     loader.style.display = 'flex';
 
-    const url = 'https://backendapplication.registerlogin.ca/resetPassword';
+    const url = 'http://localhost:3001/resetPassword';
     const dataToBeSent = {
         token: token,
         newPassword: newPassword.value

@@ -23,7 +23,7 @@ async function signIn(evt) {
     evt.preventDefault();
     loader.style.display = "flex";
 
-    const url = 'https://backendapplication.registerlogin.ca/login';
+    const url = 'http://localhost:3001/login';
     const dataToBeSent = {
         username: username.value,
         password: password.value

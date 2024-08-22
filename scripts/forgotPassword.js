@@ -8,7 +8,7 @@ async function sendResetLink(evt) {
     evt.preventDefault();
     loader.style.display = 'flex';
 
-    const url = 'https://backendapplication.registerlogin.ca/sendResetLink';
+    const url = 'http://localhost:3001/sendResetLink';
     const dataToBeSent = {
         email: email.value
     }

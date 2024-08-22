@@ -40,7 +40,7 @@ async function checkUserExists(evt) {
 
     loader.style.display = "flex";
 
-    const url = 'https://backendapplication.registerlogin.ca/checkUserExists';
+    const url = 'http://localhost:3001/checkUserExists';
     const dataToBeSent = {
         email: email.value,
         username: username.value

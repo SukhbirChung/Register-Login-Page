@@ -1,7 +1,7 @@
 async function registerUser() {
     loader.style.display = "flex";
 
-    const url = 'https://backendapplication.registerlogin.ca/signup';
+    const url = 'http://localhost:3001/signup';
     const dataToBeSent = {
         email: email.value,
         username: username.value,

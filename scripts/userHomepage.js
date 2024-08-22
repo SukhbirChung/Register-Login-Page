@@ -33,7 +33,7 @@ async function logOut(evt) {
     loader.style.display = "flex";
     evt.preventDefault();
 
-    const url = 'https://backendapplication.registerlogin.ca/logout';
+    const url = 'http://localhost:3001/logout';
     const options = {
         method: 'POST',
         url: url,
