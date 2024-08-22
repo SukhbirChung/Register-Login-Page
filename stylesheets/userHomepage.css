@@ -9,11 +9,15 @@
     font-weight: bold;
 }
 
-.signout-btn{
+.signout-btn, .delete-account-btn{
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
     background-color: #211452;
     color: white;
     font-size: 14px;
     cursor: pointer;
+}
+
+.delete-account{
+    margin: 1rem 0 0 1rem;
 }

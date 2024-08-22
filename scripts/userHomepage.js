@@ -6,7 +6,7 @@ window.addEventListener('load', isLoggedIn);
 async function isLoggedIn() {
     loader.style.display = "flex";
 
-    const url = 'https://backendapplication.registerlogin.ca/isLoggedIn';
+    const url = 'http://localhost:3001/isLoggedIn';
     const options = {
         method: 'POST',
         url: url,
@@ -30,8 +30,8 @@ const response = document.querySelector('.response');
 signOutBtn.addEventListener('click', logOut);
 
 async function logOut(evt) {
-    loader.style.display = "flex";
     evt.preventDefault();
+    loader.style.display = "flex";    
 
     const url = 'http://localhost:3001/logout';
     const options = {
