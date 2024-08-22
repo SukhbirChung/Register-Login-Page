@@ -2,6 +2,7 @@ const loader = document.querySelector('.loader');
 const forgotPasswordForm = document.querySelector('.forgot-password-form');
 const email = forgotPasswordForm.querySelector('input');
 const response = document.querySelector('.response');
+const warning = document.querySelector('.warning');
 forgotPasswordForm.addEventListener('submit', sendResetLink);
 
 async function sendResetLink(evt) {
@@ -24,6 +25,7 @@ async function sendResetLink(evt) {
         .then((res) => {
             loader.style.display = 'none';
             response.textContent = res.data;
+            warning.style.display = 'block';
             response.classList.add('response-success');
             response.classList.remove('response-failure');
         })
