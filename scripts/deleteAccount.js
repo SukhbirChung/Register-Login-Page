@@ -19,6 +19,7 @@ function hideDialog(){
 
 async function deleteAccount(evt) {
     evt.preventDefault()
+    modalContainer.style.display = 'none';
     loader.style.display = "flex";
 
     const url = 'http://localhost:3001/deleteAccount';
