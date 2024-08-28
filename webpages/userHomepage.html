@@ -49,7 +49,7 @@
     </div>    
 
     <main>
-        <h1 class="user-homepage-heading">Welcome To Register/Login User Homepage</h1>
+        <h1 class="user-homepage-heading">Welcome To Register/Login</h1>
 
         <div class="user-action-buttons">
             <button class="signout-btn">Sign Out</button>
@@ -73,12 +73,49 @@
                 </p>
             </div>
 
+            <div class="technologies">
+                <h3>Technologies Used</h3>
+                <ul class="technologies-list">
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript</li>
+                    <li>Node.js</li>
+                    <li>Express</li>
+                    <li>MongoDB</li>
+                    <li>
+                        npm packages used:
+                        <ul>
+                            <li>passport</li>
+                            <li>passport-local</li>
+                            <li>passport-local-mongoose</li>
+                            <li>express-session</li>
+                            <li>mongoose</li>
+                            <li>axios</li>
+                            <li>connect-mongo</li>
+                            <li>cors</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Authentication and Authorization</h3>
+                <p>
+                    <b>Authentication</b> occurs when a user signs in through the Sign-In page. The <a href="https://github.com/SukhbirChung/Register-Login-Backend-Application">backend Node.js application</a> uses the Passport npm package to handle user authentication and authorization.<br>
+                    <b>Authorization</b> takes place when a user attempts to access the current page that you are reading right now. Only authenticated users are authorized to view this page. If an unauthenticated user tries to access it, they will be redirected to the Sign-In page.
+                </p>
+            </div>
+
             <div class="crud-operations-container">
                 <h3>Detailed Overview of CRUD Operations</h3>
 
                 <ol>
                     <li class="crud-operation">
                         <h4>Create (Sign Up)</h4>
+
+                        <p>
+                            In the Register/Login project, the <b>Create operation</b> is demonstrated when a user's email, username, and hashed password are stored in a MongoDB database. Below is a list of checks performed before storing the credentials in the database:
+                        </p>
 
                         <ul>
                             <li>Providing a username, email, and password is mandatory, and the sign-up process will not proceed unless all fields are filled.</li>
@@ -105,19 +142,27 @@
                     <li class="crud-operation">
                         <h4>Read (Sign In)</h4>
 
+                        <p>
+                            In the Register/Login project, the <b>Read Operation</b> is demonstrated when a user's username and password are read from the database for authentication and signing out. Below is a list of actions performed during the user sign-in and sign-out process: 
+                        </p>
+
                         <ul>
                             <li>Users can only log in using their registered email and password.</li>
                             <li>UserHomepage is secured and only authroized users can access the page.</li>
                             <li>Sessions and cookies are used to maintain user login status across different pages. The session data is stored in the MongoDB database using <b>connect-mongo</b> npm package.</li>
                             <li>Redirects users to the userHomepage upon successful login.</li>
+                            <li>Redirects users to the Sign In page upon successful sign out.</li>
                         </ul>
                     </li>
 
                     <li class="crud-operation">
                         <h4>Update (Password Update)</h4>
 
+                        <p>
+                            In the Register/Login project, the <b>Update Operation</b> is demonstrated when a user forgets their password and and submits a <b>Forgot Password</b> request. A <b>Forgot Password</b> link is provided on the Sign-In page. Below is a list of actions performed during the password reset process:
+                        </p>
+
                         <ul>
-                            <li>A <b>Forgot Password</b> link is provided for users to reset their password.</li>
                             <li>When a user requests a password reset, an email is sent with a link containing a token to ensure it's the correct user. The link expires in 1 hour.</li>
                             <li>The new password is hashed and securely stored in the database, replacing the old one.</li>
                             <li>The token is deleted from the database after the password is updated securely.</li>
@@ -126,6 +171,11 @@
 
                     <li>
                         <h4>Delete (Account Deletion)</h4>
+
+                        <p>
+                            In the Register/Login project, the <b>Delete Operation</b> is demonstrated when a user clicks on the <b>Delete Account</b> button. Below is a list of actions performed during the account deletion process: 
+
+                        </p>
 
                         <ul>
                             <li>Users can permanently delete their accounts after confirming their decision.</li>
