@@ -1,6 +1,7 @@
 body{
-    padding-inline: 0.75rem;
+    padding: 0.75rem;
     background-color: whitesmoke;
+    font-family: "Roboto", sans-serif;
 }
 
 main{
@@ -36,6 +37,14 @@ p{
 ol, ul{
     margin: 0;
     padding-left:1rem;
+}
+
+.user-action-buttons{
+    text-align: right;
+}
+
+.delete-account-btn{
+    margin-right: 0.5rem;
 }
 
 .modal-container{
@@ -82,10 +91,6 @@ ol, ul{
 .modal-footer{
     display: flex;
     justify-content: space-between;
-}
-
-.user-action-buttons{
-    text-align: right;
 }
 
 .signout-btn, .delete-account-btn, .cancel-btn, .confirm-deletion-btn{
