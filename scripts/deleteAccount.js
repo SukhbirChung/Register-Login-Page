@@ -1,6 +1,21 @@
 const deleteAccountBtn = document.querySelector('.delete-account-btn');
+const modalContainer = document.querySelector('.modal-container');
+const crossBtn = modalContainer.querySelector('.modal-heading button');
+const cancelBtn = modalContainer.querySelector('.cancel-btn');
+const confirmDeletionBtn = modalContainer.querySelector('.confirm-deletion-btn');
 
-deleteAccountBtn.addEventListener('click', deleteAccount);
+deleteAccountBtn.addEventListener('click', showDialog);
+crossBtn.addEventListener('click', hideDialog);
+cancelBtn.addEventListener('click', hideDialog);
+confirmDeletionBtn.addEventListener('click', deleteAccount);
+
+function showDialog(){
+    modalContainer.style.display = 'initial';
+}
+
+function hideDialog(){
+    modalContainer.style.display = 'none';
+}
 
 async function deleteAccount(evt) {
     evt.preventDefault()

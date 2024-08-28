@@ -1,7 +1,7 @@
 /* Only show this page if the user is logged in */
 const loader = document.querySelector('.loader');
 
-window.addEventListener('load', isLoggedIn);
+//window.addEventListener('load', isLoggedIn);
 
 async function isLoggedIn() {
     loader.style.display = "flex";
