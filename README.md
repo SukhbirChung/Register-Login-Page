@@ -20,7 +20,7 @@ Register/Login is a secure user authentication and authorization system that I b
     * cors
 
 ## Authentication and Authorization
-* **Authentication** occurs when a user signs in through the Sign-In page. The backend Node.js application uses the Passport npm package to handle user authentication and authorization.
+* **Authentication** occurs when a user signs in through the Sign-In page. The [backend Node.js application](https://github.com/SukhbirChung/Register-Login-Backend-Application) uses the Passport npm package to handle user authentication and authorization.
 * **Authorization** takes place when a user attempts to access the current page that you are reading right now. Only authenticated users are authorized to view this page. If an unauthenticated user tries to access it, they will be redirected to the Sign-In page.
 
 ## Detailed Overview of CRUD Operations
